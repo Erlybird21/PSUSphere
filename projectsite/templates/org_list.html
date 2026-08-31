@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">List of Organizations</div>
+            <div class="card-category">Organizations from the database</div>
+        </div>
+        <a href="{% url 'organization-add' %}" class="btn btn-primary btn-rounded">Add Organization</a>
+    </div>
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>College</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                <tr>
+                    <td>{{ object.name }}</td>
+                    <td>{{ object.college }}</td>
+                    <td>{{ object.description }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3">No organizations found.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include 'includes/pagination.html' %}
+    </div>
+</div>
+{% endblock %}

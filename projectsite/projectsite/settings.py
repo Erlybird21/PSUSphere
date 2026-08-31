@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y1#+w%ek88h6rm#&t-d9(5xq&t)hpph(rxe^syyns=_9j61hg)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['erlybird21.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['erlybird21.pythonanywhere.com', '127.0.0.1', 'testserver']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'projectsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,6 +116,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 # Email
