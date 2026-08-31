@@ -3,31 +3,29 @@
 <div class="card">
     <div class="card-header">
         <div>
-            <div class="card-title">List of Organizations</div>
-            <div class="card-category">Organizations from the database</div>
+            <div class="card-title">List of Programs</div>
+            <div class="card-category">Program records from the database</div>
         </div>
-        <a href="{% url 'organization-add' %}" class="btn btn-primary btn-rounded">Add Organization</a>
+        <a href="{% url 'program-add' %}" class="btn btn-primary btn-rounded">Add Program</a>
     </div>
     <div class="card-body">
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Program Name</th>
                     <th>College</th>
-                    <th>Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {% for object in object_list %}
                 <tr>
-                    <td>{{ object.name }}</td>
+                    <td>{{ object.prog_name }}</td>
                     <td>{{ object.college }}</td>
-                    <td>{{ object.description }}</td>
-                    <td><a href="{% url 'organization-update' object.pk %}">Edit</a> | <a href="{% url 'organization-delete' object.pk %}" class="text-danger">Delete</a></td>
+                    <td><a href="{% url 'program-update' object.pk %}">Edit</a> | <a href="{% url 'program-delete' object.pk %}" class="text-danger">Delete</a></td>
                 </tr>
                 {% empty %}
-                <tr><td colspan="4">No organizations found.</td></tr>
+                <tr><td colspan="3">No programs found.</td></tr>
                 {% endfor %}
             </tbody>
         </table>

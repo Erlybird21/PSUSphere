@@ -78,12 +78,12 @@
                 <li><a href="#">Components</a></li>
                 <li class="{% if request.resolver_match.url_name|slice:':12' == 'organization' %}active{% endif %}"><a href="{% url 'organization-list' %}">Organization</a></li>
                 <li><a href="#">Forms</a></li>
-                <li><a href="#">Org. Members <span class="badge">3</span></a></li>
+                <li class="{% if request.resolver_match.url_name|slice:':9' == 'orgmember' %}active{% endif %}"><a href="{% url 'orgmember-list' %}">Org. Members <span class="badge">3</span></a></li>
                 <li><a href="#">Tables</a></li>
-                <li><a href="#">Student</a></li>
+                <li class="{% if request.resolver_match.url_name|slice:':7' == 'student' %}active{% endif %}"><a href="{% url 'student-list' %}">Student</a></li>
                 <li><a href="#">Notifications <span class="badge gray">4</span></a></li>
-                <li><a href="#">College</a></li>
-                <li><a href="#">Program</a></li>
+                <li class="{% if request.resolver_match.url_name|slice:':7' == 'college' %}active{% endif %}"><a href="{% url 'college-list' %}">College</a></li>
+                <li class="{% if request.resolver_match.url_name|slice:':7' == 'program' %}active{% endif %}"><a href="{% url 'program-list' %}">Program</a></li>
             </ul>
         </nav>
         <main class="main">

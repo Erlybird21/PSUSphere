@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            {% if object %}
+                Update Org Member
+            {% else %}
+                Add New Org Member
+            {% endif %}
+        </div>
+    </div>
+    <div class="card-body">
+        <form class="" action="" method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-rounded">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

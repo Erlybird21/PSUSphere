@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">List of Org Members</div>
+            <div class="card-category">OrgMember records from the database</div>
+        </div>
+        <a href="{% url 'orgmember-add' %}" class="btn btn-primary btn-rounded">Add Org Member</a>
+    </div>
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Organization</th>
+                    <th>Date Joined</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                <tr>
+                    <td>{{ object.student }}</td>
+                    <td>{{ object.organization }}</td>
+                    <td>{{ object.date_joined }}</td>
+                    <td><a href="{% url 'orgmember-update' object.pk %}">Edit</a> | <a href="{% url 'orgmember-delete' object.pk %}" class="text-danger">Delete</a></td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">No org members found.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include 'includes/pagination.html' %}
+    </div>
+</div>
+{% endblock %}
