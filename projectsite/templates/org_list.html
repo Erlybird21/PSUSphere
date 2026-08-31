@@ -15,6 +15,7 @@
                     <th>Name</th>
                     <th>College</th>
                     <th>Description</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,9 +24,10 @@
                     <td>{{ object.name }}</td>
                     <td>{{ object.college }}</td>
                     <td>{{ object.description }}</td>
+                    <td><a href="{% url 'organization-update' object.pk %}">Edit</a></td>
                 </tr>
                 {% empty %}
-                <tr><td colspan="3">No organizations found.</td></tr>
+                <tr><td colspan="4">No organizations found.</td></tr>
                 {% endfor %}
             </tbody>
         </table>
