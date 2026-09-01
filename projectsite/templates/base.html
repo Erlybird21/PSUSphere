@@ -61,7 +61,9 @@
     <div class="topbar">
         <div class="brand">PSUSphere</div>
         <div class="top-actions">
-            <div class="search-box"><input type="text" placeholder="Search..."></div>
+            <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'organization-list' %}" method="get">
+                <div class="search-box"><input type="text" placeholder="Search ..." class="form-control" name="q" value="{{ request.GET.q }}"></div>
+            </form>
             <div class="photo">
                 <img src="{% static 'img/profile.jpg' %}" alt="user-img">
             </div>

@@ -9,6 +9,11 @@
         <a href="{% url 'college-add' %}" class="btn btn-primary btn-rounded">Add College</a>
     </div>
     <div class="card-body">
+        <form method="get" class="row g-2 align-items-center" style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+            <div class="col-auto" style="flex:1;"><input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search ..." class="form-control"></div>
+            <div class="col-auto"><button type="submit" class="btn btn-primary btn-sm btn-rounded">Search</button></div>
+            {% if request.GET.sort_by %}<input type="hidden" name="sort_by" value="{{ request.GET.sort_by }}">{% endif %}
+        </form>
         <table>
             <thead>
                 <tr>

@@ -9,6 +9,26 @@
         <a href="{% url 'orgmember-add' %}" class="btn btn-primary btn-rounded">Add Org Member</a>
     </div>
     <div class="card-body">
+        <form method="get" class="row g-2 align-items-center" style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+            <div class="col-auto" style="flex:1;"><input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search ..." class="form-control"></div>
+            <div class="col-auto"><button type="submit" class="btn btn-primary btn-sm btn-rounded">Search</button></div>
+            {% if request.GET.sort_by %}<input type="hidden" name="sort_by" value="{{ request.GET.sort_by }}">{% endif %}
+        </form>
+        <div class="col-md-12" style="margin-bottom:12px;">
+            <form method="get" class="row g-2 align-items-center" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                <div class="col-auto"><label for="smallSelect" class="col-form-label">Sort by</label></div>
+                <div class="col-auto">
+                    <select class="form-control form-control-sm" id="smallSelect" name="sort_by">
+                        <option value="student__lastname" {% if request.GET.sort_by == "student__lastname" %}selected{% endif %}>Student Name</option>
+                        <option value="date_joined" {% if request.GET.sort_by == "date_joined" %}selected{% endif %}>Date Joined</option>
+                        <option value="-student__lastname" {% if request.GET.sort_by == "-student__lastname" %}selected{% endif %}>Student Name (Z-A)</option>
+                        <option value="-date_joined" {% if request.GET.sort_by == "-date_joined" %}selected{% endif %}>Date Joined (Newest)</option>
+                    </select>
+                </div>
+                <div class="col-auto"><button type="submit" class="btn btn-primary btn-sm btn-rounded">Sort</button></div>
+                {% if request.GET.q %}<input type="hidden" name="q" value="{{ request.GET.q }}">{% endif %}
+            </form>
+        </div>
         <table>
             <thead>
                 <tr>
