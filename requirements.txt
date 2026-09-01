@@ -1,5 +1,9 @@
 asgiref==3.12.1
+cryptography==46.0.1
 Django==6.1
+django-allauth==65.11.2
 Faker==40.36.0
+PyJWT==2.10.1
+requests==2.32.5
 sqlparse==0.6.0
 tzdata==2026.3
