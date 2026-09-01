@@ -64,6 +64,7 @@
             <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'organization-list' %}" method="get">
                 <div class="search-box"><input type="text" placeholder="Search ..." class="form-control" name="q" value="{{ request.GET.q }}"></div>
             </form>
+            <span>{{ request.user.username }}</span>
             <div class="photo">
                 <img src="{% static 'img/profile.jpg' %}" alt="user-img">
             </div>
@@ -73,7 +74,7 @@
     <div class="wrapper">
         <nav class="sidebar">
             <div class="u-img"><img src="{% static 'img/profile.jpg' %}" alt="user"></div>
-            <div class="u-name">Administrator</div>
+            <div class="u-name"><span>{{ request.user.username }}</span><br><span class="user-level">Administrator</span></div>
             <div class="menu-label">Navigation</div>
             <ul>
                 <li class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'home' %}">Dashboard <span class="badge green">5</span></a></li>
