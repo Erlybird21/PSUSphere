@@ -27,4 +27,5 @@ urlpatterns = [
     path('program_list/add', views.ProgramCreateView.as_view(), name='program-add'),
     path('program_list/<int:pk>', views.ProgramUpdateView.as_view(), name='program-update'),
     path('program_list/<int:pk>/delete', views.ProgramDeleteView.as_view(), name='program-delete'),
+    path('api/', include('api.urls')),
 ]
